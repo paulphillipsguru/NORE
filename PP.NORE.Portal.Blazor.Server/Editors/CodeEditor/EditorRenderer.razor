@@ -1,0 +1,26 @@
+﻿
+<StandaloneCodeEditor @ref="_editor" ConstructionOptions="EditorConstructionOptions" CssClass="myEditor" OnDidChangeModelContent="EditorOnKeyUpModified" />
+
+@code {
+	[Parameter]
+	public EditorModel ComponentModel { get; set; }
+	private StandaloneCodeEditor _editor = null;
+	private StandaloneEditorConstructionOptions EditorConstructionOptions(StandaloneCodeEditor editor)
+	{
+		return new StandaloneEditorConstructionOptions
+			   {
+				   AutomaticLayout = true,
+				   Language = "csharp",
+				   Value = ComponentModel.Code
+			   };
+	}
+
+	private async Task EditorOnKeyUpModified()
+	{
+		var value = await _editor.GetValue();
+		ComponentModel.SetValueFromUI(value);
+	}
+
+     public static RenderFragment Create(EditorModel componentModel) =>
+    @<EditorRenderer ComponentModel=@componentModel />;
+}

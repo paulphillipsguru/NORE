@@ -1,0 +1,6 @@
+@PP.NORE.API_HostAddress = http://localhost:5023
+
+GET {{PP.NORE.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

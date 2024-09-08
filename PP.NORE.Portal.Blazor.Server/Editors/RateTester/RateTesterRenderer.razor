@@ -1,0 +1,56 @@
+﻿@using Newtonsoft.Json
+@using PP.NORE.Shared.Models
+@using System.Text.Json
+<div class="row">
+    <div class="col">
+        <DxMemo @bind-Text="TestData"
+                BindValueMode="BindValueMode.OnInput"
+                CssClass="cw-320"
+                SizeMode="SizeMode.Large"
+                Rows="15"
+                Columns="5" />
+        <DxButton Click="PerformRate">Rate</DxButton>
+        <strong>@Error</strong>
+    </div>
+    <div class="col">
+        <b>Total Premium: $@RateResponse.TotalPremium</b><br/>
+        <pre>
+        @Debug
+        </pre>
+    </div>
+</div>
+
+
+
+
+@code {
+    public string Error { get; set; } = string.Empty;
+    public string TestData { get; set; } = string.Empty;
+    public RateResponse RateResponse { get; set; } = new();
+    public string Debug { get; set; }
+
+    [Parameter]
+    public RateTesterModel ComponentModel { get; set; }
+
+    void PerformRate()
+    {
+        try
+        {
+            if (!string.IsNullOrEmpty(TestData))
+            {
+                ComponentModel.RateRequest = System.Text.Json.JsonSerializer.Deserialize<RateRequest>(TestData);
+                RateResponse = ComponentModel.Rater.RateProduct(ComponentModel.RateRequest);
+                Debug = JsonConvert.SerializeObject(RateResponse, Formatting.Indented);
+
+            }
+        }
+        catch(Exception ex)
+        {
+            Error = ex.Message;            
+        }
+
+    }
+
+	public static RenderFragment Create(RateTesterModel componentModel) =>
+    @<RateTesterRenderer ComponentModel=@componentModel />;
+}

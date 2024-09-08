@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Products.ProductPackage">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="LastUpdateDated" AllowEdit="False" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views Id="Views">
+    <DetailView Id="ProductPackage_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ProductPackage">
+              <LayoutItem Id="LastUpdateDated" Index="0" RelativeSize="3.4514078110808355" Removed="True" />
+              <LayoutGroup Id="Auto72e7e180-0ac2-4daa-8c0b-cadb9dad54e2">
+                <LayoutItem Id="LastUpdateDated" ViewItem="LastUpdateDated" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

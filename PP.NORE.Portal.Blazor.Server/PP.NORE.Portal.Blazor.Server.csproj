@@ -1,0 +1,65 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <Deterministic>false</Deterministic>
+    <AssemblyVersion>1.0.*</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Configurations>Debug;Release;EasyTest</Configurations>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Model.xafml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model.xafml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Aspose.Words" Version="23.8.0" />
+    <PackageReference Include="BlazorMonaco" Version="3.2.0" />
+    <PackageReference Include="DevExpress.Drawing.Skia" Version="24.1.5" />
+    <PackageReference Include="DevExpress.ExpressApp.Blazor" Version="24.1.5" />
+    <PackageReference Include="DevExpress.ExpressApp.CodeAnalysis" Version="24.1.5" />
+    <PackageReference Include="DevExpress.ExpressApp.FileAttachment.Blazor" Version="24.1.5" />
+    <PackageReference Include="DevExpress.ExpressApp.MultiTenancy.Blazor.Xpo" Version="24.1.5" />
+    <PackageReference Include="DevExpress.ExpressApp.Notifications.Blazor" Version="24.1.5" />
+    <PackageReference Include="DevExpress.ExpressApp.Office.Blazor" Version="24.1.5" />
+    <PackageReference Include="DevExpress.ExpressApp.Security.Xpo" Version="24.1.5" />
+    <PackageReference Include="DevExpress.ExpressApp.Validation.Blazor" Version="24.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Negotiate" Version="8.0.1" />
+    <PackageReference Include="Microsoft.Identity.Web.UI" Version="2.18.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PP.NORE.Builder\PP.NORE.Builder.csproj" />
+    <ProjectReference Include="..\PP.NORE.Portal.Module\PP.NORE.Portal.Module.csproj" />
+    <ProjectReference Include="..\PP.NORE.RatingEngine\PP.NORE.RatingEngine.csproj" />
+    <ProjectReference Include="..\PP.NORE.Shared\PP.NORE.Shared.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Aspose.Words.NET.lic">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="UnusableNodes.xml">
+      <DependentUpon>Model.xafml</DependentUpon>
+    </None>
+    <None Update="UnusableNodes1.xml">
+      <DependentUpon>Model.xafml</DependentUpon>
+    </None>
+    <None Update="UnusableNodes2.xml">
+      <DependentUpon>Model.xafml</DependentUpon>
+    </None>
+    <None Update="UnusableNodes3.xml">
+      <DependentUpon>Model.xafml</DependentUpon>
+    </None>
+    <None Update="UnusableNodes4.xml">
+      <DependentUpon>Model.xafml</DependentUpon>
+    </None>
+    <None Update="UnusableNodes5.xml">
+      <DependentUpon>Model.xafml</DependentUpon>
+    </None>
+  </ItemGroup>
+</Project>

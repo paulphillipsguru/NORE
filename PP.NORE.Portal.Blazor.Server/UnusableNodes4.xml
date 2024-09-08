@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Base.BaseFactor">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Code" Index="0" />
+        <Member Name="Sequence" Index="1" />
+        <Member Name="Steps" Index="2" />
+        <Member Name="Algorithm" PropertyEditorType="PP.NORE.Portal.Blazor.Server.Editors.CodeEditor.EditorProperty" Index="3" />
+      </OwnMembers>
+    </Class>
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Base.BaseProduct">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Documentation" PropertyEditorType="DevExpress.ExpressApp.Office.Blazor.Editors.RichTextPropertyEditor" />
+      </OwnMembers>
+    </Class>
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Base.BaseStep">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="BaseProduct" Index="0" />
+        <Member Name="Code" Index="1" />
+        <Member Name="Algorithm" PropertyEditorType="PP.NORE.Portal.Blazor.Server.Editors.CodeEditor.EditorProperty" Index="2" />
+        <Member Name="Factors" Index="3" />
+      </OwnMembers>
+    </Class>
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Base.DeclineRule">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="BaseProduct" Index="0" />
+        <Member Name="Code" Index="1" />
+        <Member Name="DeclineMessage" Index="2" />
+        <Member Name="Condition" PropertyEditorType="PP.NORE.Portal.Blazor.Server.Editors.CodeEditor.EditorProperty" />
+      </OwnMembers>
+    </Class>
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Base.ReferralRule">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Condition" PropertyEditorType="PP.NORE.Portal.Blazor.Server.Editors.CodeEditor.EditorProperty" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views Id="Views">
+    <ListView Id="Product_Modules_ListView" ImageName="LayoutCustomization_Item" />
+    <DetailView Id="Product_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="Modules" Caption="Blueprints" />
+      </Items>
+    </DetailView>
+  </Views>
+</Application>

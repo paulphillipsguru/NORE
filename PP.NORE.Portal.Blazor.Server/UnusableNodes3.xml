@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Products.Product">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Template" PropertyEditorType="DevExpress.ExpressApp.Blazor.Editors.CheckedLookupStringPropertyEditor" DataSourceProperty="Templates" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <Views Id="Views">
+    <DetailView Id="ProductPackage_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="ProductPackage">
+              <LayoutItem Id="Package" Index="1" RelativeSize="96.00363306085377" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

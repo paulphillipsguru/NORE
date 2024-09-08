@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="NORE">
+  <BOModel>
+    <Class Name="DevExpress.Persistent.BaseImpl.PermissionPolicy.PermissionPolicyUser" Caption="Base User" />
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Base.DecisionRule" DefaultLookupEditorMode="Auto" IsCloneable="True" />
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Base.Lookup" DefaultDetailViewImage="Navigation_Item_View" Caption="Model" />
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Products.Factor" DefaultDetailViewImage="Action_ModelDifferences_Import">
+      <AppearanceRules>
+        <AppearanceRule Id="Failed" BackColor="Red" FontColor="White" TargetItems="Status" Criteria="[Status] = 'Failed'" IsNewNode="True" />
+        <AppearanceRule Id="Status" TargetItems="Status" BackColor="Lime" Criteria="[Status] = 'Success'" IsNewNode="True" />
+      </AppearanceRules>
+    </Class>
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Products.Product" DefaultDetailViewImage="Action_CloneMerge_Clone_Object" DefaultListViewImage="Action_CloneMerge_Clone_Object">
+      <AppearanceRules>
+        <AppearanceRule Id="ProductFailed" TargetItems="Status" Criteria="[Status] = 'Failed'" BackColor="192, 0, 0" FontColor="White" IsNewNode="True" />
+        <AppearanceRule Id="ProductSuccess" BackColor="128, 255, 128" Criteria="[Status] = 'Success'" TargetItems="Status" IsNewNode="True" />
+      </AppearanceRules>
+      <OwnMembers>
+        <Member Name="ProductPackage" Caption="Versioning" />
+        <Member Name="Status" AllowEdit="False" />
+      </OwnMembers>
+    </Class>
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Products.ProductPackage" DefaultDetailViewImage="BO_Resources" Caption="Versioning" />
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Products.ProductTest" IsCloneable="True">
+      <OwnMembers>
+        <Member Name="ActualPremium" AllowEdit="False" />
+        <Member Name="ActualStatus" AllowEdit="False" />
+        <Member Name="Message" AllowEdit="False" />
+      </OwnMembers>
+    </Class>
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Products.Step" DefaultDetailViewImage="ContextMenu_Sort_Descending" DefaultListViewImage="ContextMenu_Sort_Descending">
+      <AppearanceRules>
+        <AppearanceRule Id="Failed" Priority="0" BackColor="Red" FontColor="White" TargetItems="Status" Criteria="[Status] = 'Failed'" IsNewNode="True" />
+        <AppearanceRule Id="Status" Priority="0" TargetItems="Status" BackColor="Lime" Criteria="[Status] = 'Success'" IsNewNode="True" />
+      </AppearanceRules>
+    </Class>
+  </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Library" Index="2" ImageName="BO_Resources" />
+      <Item Id="Default" Caption="Security" ImageName="LayoutCustomization_MakeNotCollapsible">
+        <Items>
+          <Item Id="DecisionRule_ListView" Removed="True" />
+          <Item Id="Factor_ListView" Removed="True" />
+          <Item Id="Product_ListView" Removed="True" />
+          <Item Id="ProductDecision_ListView" Removed="True" />
+          <Item Id="ProductPackage_ListView" Removed="True" />
+          <Item Id="ProductSection_ListView" Removed="True" />
+          <Item Id="ProductSectionAlgorithm_ListView" Removed="True" />
+          <Item Id="ProductSectionAlgorithmStep_ListView" Removed="True" />
+          <Item Id="ProductSectionDecision_ListView" Removed="True" />
+          <Item Id="ProductTest_ListView" Removed="True" />
+          <Item Id="Step_ListView" Removed="True" />
+        </Items>
+      </Item>
+      <Item Id="Products" ImageName="Action_CloneMerge_Clone_Object" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="Product_ListView" ViewId="Product_ListView" ObjectKey="" Index="0" IsNewNode="True" />
+          <Item Id="ProductDecision_ListView" ViewId="ProductDecision_ListView" ObjectKey="" Caption="Decision" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="Sections" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="ProductSection_ListView" ViewId="ProductSection_ListView" ObjectKey="" Index="1" Caption="Sections" IsNewNode="True" />
+          <Item Id="ProductSectionDecision_ListView" ViewId="ProductSectionDecision_ListView" ObjectKey="" Caption="Decisions" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="State Machine" Removed="True" />
+    </Items>
+  </NavigationItems>
+  <Options>
+    <LayoutManagerOptions RequiredFieldMark="*" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="24.1.5.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="24.1.5.0" IsNewNode="True" />
+  </SchemaModules>
+  <Validation>
+    <Rules>
+      <RuleStringComparison Id="CheckForDoubleQuote" TargetType="PP.NORE.Portal.Module.BusinessObjects.Base.DecisionRule" TargetPropertyName="Message" TargetContextIDs="Save" OperandValue="&quot;" InvertResult="True" CustomMessageTemplate="Please remove double quote from message (&quot;)" IsNewNode="True" />
+    </Rules>
+  </Validation>
+  <Views>
+    <ListView Id="ApplicationUser_ListView" Caption="Users" />
+    <ListView Id="Product_Decisions_ListView" AllowDelete="False" AllowNew="False" AllowLink="True" AllowUnlink="True" />
+    <DetailView Id="Product_DetailView">
+      <Items>
+        <PropertyEditor Id="Packages" Caption="Versioning" />
+        <PropertyEditor Id="RequiredLookups" Caption="Required Models" />
+      </Items>
+    </DetailView>
+    <ListView Id="Product_Packages_ListView" AllowDelete="False" AllowNew="False" AllowLink="True" AllowUnlink="True" />
+    <ListView Id="Product_RequiredLookups_ListView" AllowDelete="False" AllowLink="True" AllowNew="False" AllowUnlink="True" />
+    <ListView Id="Product_Sections_ListView" AllowDelete="False" AllowLink="True" AllowNew="False" AllowUnlink="True" />
+    <ListView Id="ProductDecision_ListView" AllowDelete="True" AllowEdit="True" AllowLink="False" AllowNew="True" AllowUnlink="False" IsGroupPanelVisible="True" />
+    <ListView Id="ProductDecision_LookupListView" AllowDelete="False" AllowNew="False" AllowLink="True" AllowUnlink="True" />
+    <DetailView Id="ProductPackage_DetailView" AllowDelete="False" AllowNew="False" ImageName="LayoutCustomization_Group_Hidden">
+      <HiddenActions>
+        <ActionLink ActionId="New" IsNewNode="True" />
+        <ActionLink ActionId="Save" IsNewNode="True" />
+      </HiddenActions>
+    </DetailView>
+    <ListView Id="ProductPackage_ListView" AllowDelete="False" AllowLink="True" AllowNew="False" AllowUnlink="True" />
+    <ListView Id="ProductSection_LookupListView" AllowDelete="False" AllowLink="True" AllowNew="False" AllowUnlink="True" />
+    <DetailView Id="ProductTest_DetailView">
+      <Items>
+        <PropertyEditor Id="TestPayLoad" Index="0" />
+        <PropertyEditor Id="ExpectedStatus" Index="1" />
+        <PropertyEditor Id="ExpectedPremium" Index="2" />
+        <PropertyEditor Id="ActualPremium" Index="3" AllowEdit="False" />
+        <PropertyEditor Id="ActualStatus" Index="4" AllowEdit="False" />
+        <PropertyEditor Id="Passed" Index="5" AllowEdit="False" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="23.64864864864865">
+            <LayoutItem Id="TestPayLoad" ViewItem="TestPayLoad" Index="0" RelativeSize="38.095238095238095" IsNewNode="True" />
+            <LayoutGroup Id="ProductTest" RelativeSize="61.904761904761905" Index="1">
+              <LayoutGroup Id="ProductTest_col1" RelativeSize="50">
+                <LayoutItem Id="ExpectedStatus" Index="0" RelativeSize="36.170212765957444" />
+                <LayoutItem Id="ExpectedPremium" Index="1" RelativeSize="27.659574468085108" />
+                <LayoutItem Id="ActualStatus" Index="2" RelativeSize="36.170212765957444" />
+              </LayoutGroup>
+              <LayoutGroup Id="ProductTest_col2" RelativeSize="50" Caption="ProductTest_col2">
+                <LayoutItem Id="ActualPremium" RelativeSize="100" />
+                <LayoutItem Id="Passed" RelativeSize="63.829787234042556" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutItem Id="Passed" ViewItem="Passed" Index="1" RelativeSize="2.9279279279279278" IsNewNode="True" />
+          <LayoutGroup Id="SizeableEditors" Caption="Test Pay Load" RelativeSize="73.42342342342343" Index="2">
+            <LayoutItem Id="TestPayLoad" Removed="True" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

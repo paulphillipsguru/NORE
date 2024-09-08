@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="NORE">
+  <BOModel>
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Base.CodeTemplate" Caption="Blueprints">
+      <OwnMembers>
+        <Member Name="Template" PropertyEditorType="PP.NORE.Portal.Blazor.Server.Editors.CodeEditor.EditorProperty" RowCount="25" Caption="Blueprint" />
+      </OwnMembers>
+    </Class>
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Base.DecisionRule">
+      <AppearanceRules>
+        <AppearanceRule Id="Failed" TargetItems="Status" BackColor="Red" Criteria="[Status] &lt;&gt; 'Success'" IsNewNode="True" />
+        <AppearanceRule Id="Success" TargetItems="Status" BackColor="0, 192, 0" FontColor="Black" Criteria="[Status] = 'Success'" IsNewNode="True" />
+      </AppearanceRules>
+      <OwnMembers>
+        <Member Name="Algorithm" PropertyEditorType="PP.NORE.Portal.Blazor.Server.Editors.CodeEditor.EditorProperty" />
+        <Member Name="Status" AllowEdit="False" />
+        <Member Name="ValidationMessage" AllowEdit="False" />
+      </OwnMembers>
+    </Class>
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Products.Factor">
+      <OwnMembers>
+        <Member Name="Algorithm" PropertyEditorType="PP.NORE.Portal.Blazor.Server.Editors.CodeEditor.EditorProperty" />
+      </OwnMembers>
+    </Class>
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Products.Product">
+      <AppearanceRules>
+        <AppearanceRule Id="ProductFailed" Criteria="[Status] &lt;&gt; 'Success'" />
+        <AppearanceRule Id="ProductSuccess" BackColor="0, 192, 0" />
+      </AppearanceRules>
+      <OwnMembers>
+        <Member Name="ValidateMessage" AllowEdit="False" RowCount="1" />
+      </OwnMembers>
+    </Class>
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Products.ProductPackage">
+      <OwnMembers>
+        <Member Name="Package" PropertyEditorType="PP.NORE.Portal.Blazor.Server.Editors.RateTester.RateTesterProperty" Caption="Payload" />
+      </OwnMembers>
+    </Class>
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Products.ProductTest">
+      <AppearanceRules>
+        <AppearanceRule Id="Failed" BackColor="192, 0, 0" FontColor="White" TargetItems="Passed" Criteria="[Passed] = False" IsNewNode="True" />
+        <AppearanceRule Id="Passed" TargetItems="Passed" BackColor="Lime" Criteria="[Passed] = True" IsNewNode="True" />
+      </AppearanceRules>
+    </Class>
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.Products.Step">
+      <OwnMembers>
+        <Member Name="Algorithm" PropertyEditorType="PP.NORE.Portal.Blazor.Server.Editors.CodeEditor.EditorProperty" />
+        <Member Name="Status" AllowEdit="False" />
+        <Member Name="ValidationMessage" AllowEdit="True" />
+      </OwnMembers>
+    </Class>
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.ProductSections.ProductSection" DefaultDetailViewImage="ModelEditor_ModelMerge" />
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.ProductSections.ProductSectionAlgorithmStep">
+      <OwnMembers>
+        <Member Name="Algorithm" PropertyEditorType="PP.NORE.Portal.Blazor.Server.Editors.CodeEditor.EditorProperty" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <NavigationItems NavigationStyle="Accordion">
+    <Items>
+      <Item Id="Products" ImageName="Action_CloneMerge_Clone_Object" Index="0" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="Product_ListView" ObjectKey="" Index="0" Caption="Products" ViewId="Product_ListView" IsNewNode="True" />
+          <Item Id="ProductDecision_ListView" ObjectKey="" ImageName="Add_Group" Caption="Decisions" ViewId="ProductDecision_ListView" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="Sections" ImageName="LayoutCustomization_TextPosition_Left" Index="1" IsNewNode="True">
+        <Items IsNewNode="True">
+          <Item Id="ProductSection_ListView" ObjectKey="" Index="1" Caption="Sections" ViewId="ProductSection_ListView" IsNewNode="True" />
+          <Item Id="ProductSectionDecision_ListView" ObjectKey="" ImageName="Add_Group" Caption="Decisions" ViewId="ProductSectionDecision_ListView" IsNewNode="True" />
+        </Items>
+      </Item>
+      <Item Id="Library" Index="2">
+        <Items>
+          <Item Id="CodeTemplate_ListView" ImageName="LayoutCustomization_Item" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <Options UIType="SingleWindowSDI" RestoreTabbedMdiLayout="False" ShowTabImage="True" />
+  <SchemaModules>
+    <SchemaModule Name="CloneObjectModule" Version="24.1.5.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="24.1.5.0" IsNewNode="True" />
+  </SchemaModules>
+  <Views>
+    <DetailView Id="CodeTemplate_DetailView" ImageName="LayoutCustomization_Item" />
+    <ListView Id="CodeTemplate_ListView" ImageName="LayoutCustomization_Item" />
+    <ListView Id="CodeTemplate_LookupListView" ImageName="LayoutCustomization_Item" />
+    <DetailView Id="Factor_DetailView">
+      <Items>
+        <PropertyEditor Id="Code" Index="0" />
+      </Items>
+    </DetailView>
+    <DetailView Id="ProductPackage_DetailView">
+      <Items>
+        <PropertyEditor Id="Package" Caption="Request Payload" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="ProductPackage" RelativeSize="100" Caption="ProductPackage">
+              <LayoutGroup Id="Auto72e7e180-0ac2-4daa-8c0b-cadb9dad54e2" ShowCaption="False" Caption="Auto72e7e180-0ac2-4daa-8c0b-cadb9dad54e2(4)" Direction="Vertical" Index="0" RelativeSize="100" IsNewNode="True">
+                <LayoutGroup Id="Autoffcca900-dfd2-4dcd-a718-5e5002f8dff1" ShowCaption="False" Caption="" Direction="Horizontal" Index="0" RelativeSize="2.097130242825607" IsNewNode="True">
+                  <LayoutItem Id="EffectiveFrom" Index="0" RelativeSize="38.788752703677" ViewItem="EffectiveFrom" IsNewNode="True" />
+                  <LayoutItem Id="EffectiveTo" Index="1" RelativeSize="20.54794520547945" ViewItem="EffectiveTo" IsNewNode="True" />
+                  <LayoutItem Id="LastUpdateDate" Index="2" RelativeSize="40.663302090843544" ViewItem="LastUpdateDate" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="Package" Index="1" RelativeSize="97.90286975717439" ViewItem="Package" IsNewNode="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <DetailView Id="Step_DetailView">
+      <Items>
+        <PropertyEditor Id="Code" Index="0" />
+      </Items>
+    </DetailView>
+  </Views>
+</Application>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="BaseProduct_RequiredLookups_ListView" AllowDelete="False" AllowNew="False" AllowUnlink="True" AllowLink="True" />
+  </Views>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="Default">
+        <Items Id="Items">
+          <Item Id="BaseFactor_ListView" Removed="True" />
+          <Item Id="BaseStep_ListView" Removed="True" />
+          <Item Id="DeclineRule_ListView" Removed="True" />
+          <Item Id="ReferralRule_ListView" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>

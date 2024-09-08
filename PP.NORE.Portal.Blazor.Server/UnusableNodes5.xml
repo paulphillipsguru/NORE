@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel Id="BOModel">
+    <Class Name="PP.NORE.Portal.Module.BusinessObjects.ProductSections.ProductSectionAlgorithm">
+      <OwnMembers Id="OwnMembers">
+        <Member Name="Algorithm" PropertyEditorType="PP.NORE.Portal.Blazor.Server.Editors.CodeEditor.EditorProperty" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+</Application>
