@@ -17,12 +17,9 @@ So what is NORE? NORE stands for None Opinionated Rating Engine (of course there
 2. Phase 2 - Productionize 
 3. Phase 3 - Design and developer a more advance user interface / flow
 
-- [ ] ### Improve Error handling Reporting (Phase 1)
-
+- [ ] Improve Error handling Reporting (Phase 1)
 - [ ] Add security boundaries around Build and Ratings (limit access to resources like network, file etc) (Phase 1)
-
 - [ ] Improve code quality (Phase 2)
-
 - [ ] Add Unit and Integration Tests (Phase 2)
 
 ## Key Benefits
