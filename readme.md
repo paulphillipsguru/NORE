@@ -1,7 +1,29 @@
 # NORE (None Opinionated Rating Engine)
 
 ## What is NORE?
-So what is NORE? Nore stands for None Opinionated Rating Engine (of course there are some level of oppinated views, but not from a product point of view) with the aim to provide a flexible and very fast way to allow users be able to setup new product(s). NORE is a only a Rating Engine and only replaces the Blaze Rating Engine service.
+So what is NORE? NORE stands for None Opinionated Rating Engine (of course there are some level of opinionated views, but not from a product point of view) with the aim to provide a flexible and very fast way to allow users be able to setup new product(s). NORE is a only a Rating Engine and only replaces the Blaze Rating Engine service.
+
+## Key Problems Trying To Resolve
+
+1. Reduced dependencies on Engineers.
+2. Flexible Rating Engine
+3. High return on ROI
+4. Improved Debugging (consistent experience in all environments)
+5. No direct dependencies on database and/or services.
+
+### Phases
+
+1. Phase 1 - POC (current state)
+2. Phase 2 - Productionize 
+3. Phase 3 - Design and developer a more advance user interface / flow
+
+- [ ] ### Improve Error handling Reporting (Phase 1)
+
+- [ ] Add security boundaries around Build and Ratings (limit access to resources like network, file etc) (Phase 1)
+
+- [ ] Improve code quality (Phase 2)
+
+- [ ] Add Unit and Integration Tests (Phase 2)
 
 ## Key Benefits
 The system removes the need for Engineers, allowing users to operate independently and make necessary adjustments without requiring technical assistance. It also reduces reliance on Business Analysts (BAs), empowering users to configure, test, and validate changes in real time without the need for deployment or publishing updates. This capability creates a more agile and responsive environment, where adjustments can be made swiftly to meet business needs.
